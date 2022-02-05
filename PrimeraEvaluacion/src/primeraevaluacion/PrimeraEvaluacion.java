@@ -141,9 +141,63 @@ public class PrimeraEvaluacion {
         }   
     }
     
+    static void MatrizIdentidad(){
+        boolean Validacion = true;
+        
+        //Objeto de leectura.
+        Scanner entrada = new Scanner(System.in);
+        
+        //Bienvenida 
+        System.out.println(" Bienvenido al 3er ejercicio, donde validara si su matriz igresada es, o no es Identidad");
+        System.out.println("   ");
+        System.out.println("Ingrese el orden para sus 3 matrices cuadrada");
+        System.out.println("( ej: 2. Su matriz es de 2x2. )");
+        int num = 0;
+
+        num = entrada.nextInt();
+        
+        //Declaracion de Matriz.
+        int[][] Matriz_Identidad = new int[num][num];
+        
+        //Verificacion de datos
+        System.out.println("Su matriz es de " + num + "x" + num);
+        System.out.println(" ");
+        System.out.println("Ahora ingrese los siguentes (" + (num * num) + ")numeros, segun la posiscion que se le indique ");
+
+        //Llenado de la Matriz.
+        System.out.println("  ");
+        System.out.println("Para el llenado de su Matriz");
+        System.out.println("  ");
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j < num; j++) {
+                System.out.print("Ingrese el nunmero para la posicion " + i + " - " + j + " igual a: ");
+                Matriz_Identidad[i][j] = entrada.nextInt();
+            }
+        }
+
+        System.out.println(" ");
+                
+        
+        for (int i = 0; i < num; i++){
+            for (int j = 0; j < num; j++){
+                if (j == i){
+                    if (Matriz_Identidad [i][j] != 1) Validacion = false;
+                } else {
+                    if (Matriz_Identidad [i][j] != 0) Validacion = false;
+                }
+            }
+        }
+        
+        if (Validacion == true){
+            System.out.println(" La matriz ingresada es identidad.");
+        }else{
+            System.out.println("La Matriz ingresada no es Identidad");
+        }   
+    
+    }
     
     public static void main(String args[]) {
-        RellenoAutomatico();
+    MatrizIdentidad(); 
         
         
         
